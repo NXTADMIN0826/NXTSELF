@@ -87,6 +87,20 @@
   </div>
 </section>
 
+<!-- "In my words" voice recording. Stays hidden until the audio file exists:
+     drop it at assets/audio/in-my-words.mp3 and the section appears by itself. -->
+<section class="sec-sm voice-sec" data-voice hidden>
+  <div class="wrap-narrow">
+    <div class="voice">
+      <p class="eyebrow">In my words <span class="badge">New</span></p>
+      <h2 class="h2">Hear it firsthand.</h2>
+      <audio controls preload="metadata" src="assets/audio/in-my-words.mp3">
+        Your browser can't play this recording.
+      </audio>
+    </div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
 
@@ -97,8 +111,6 @@
            1. Replace each <blockquote>, .tm-name and .tm-role with the
               real client's words and chosen attribution.
            2. Delete that card's <span class="tm-sample">Sample</span> chip.
-           3. Once none are left, delete the .tm-placeholder-note on
-              index.html too.
 
          Attribution can be anonymised — "Director · Healthcare" works, and
          is often what people will actually agree to. The avatar is initials,

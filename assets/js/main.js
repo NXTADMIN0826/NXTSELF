@@ -326,6 +326,18 @@
     frame.addEventListener('error', function () { wrap.classList.add('is-failed'); });
   }
 
+  /* ---- Voice recording ----------------------------------------------- */
+  /* The section ships hidden and only appears once the audio actually loads,
+     so a missing file never shows a dead player. */
+  function initVoice() {
+    document.querySelectorAll('[data-voice]').forEach(function (sec) {
+      var audio = sec.querySelector('audio');
+      if (!audio) return;
+      audio.addEventListener('loadedmetadata', function () { sec.hidden = false; });
+      audio.load();
+    });
+  }
+
   /* ---- Year ---------------------------------------------------------- */
   function initYear() {
     document.querySelectorAll('[data-year]').forEach(function (el) {
@@ -343,6 +355,7 @@
     initBrief();
     initBooking();
     initYear();
+    initVoice();
   }
 
   if (document.readyState === 'loading') {

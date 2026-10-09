@@ -1816,3 +1816,24 @@ body.is-gated { overflow: hidden; }
 }
 .tm-placeholder-note b { color: var(--gold-deep); font-weight: 600; }
 .sec-dark .tm-placeholder-note { color: rgba(248,244,238,.8); }
+
+/* ==========================================================================
+   "In my words" voice recording (Testimonials)
+   ========================================================================== */
+.voice-sec[hidden] { display: none; }
+.voice { text-align: center; }
+.voice .eyebrow { justify-content: center; }
+.voice .badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px 9px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold-deep);
+  background: rgba(240, 165, 0, 0.1);
+  border: 1px solid rgba(240, 165, 0, 0.3);
+  border-radius: var(--r-pill);
+  vertical-align: middle;
+}
+.voice .h2 { margin: 18px 0 28px; }
+.voice audio { width: 100%; max-width: 520px; }

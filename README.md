@@ -73,25 +73,28 @@ If you add a nav item, update all ten pages.
 with invented names** — A. Mehta, J. Okonkwo, L. Fernandes, S. Dutta, M. Halvorsen,
 R. Castellanos. They exist so the layout reads finished while real quotes are collected.
 
-They are deliberately marked, in two ways:
+They are deliberately marked: every card carries a
+**`<span class="tm-sample">Sample</span>`** chip in its corner. (The amber
+`.tm-placeholder-note` banners have been removed from both pages.)
 
-1. Every card carries a **`<span class="tm-sample">Sample</span>`** chip in its corner.
-2. An amber **`.tm-placeholder-note`** sits above the homepage grid. (The Testimonials page
-   no longer has one — its `Sample` chips are the only marking there.)
-
-Leave both in place until the quotes are real. Fabricated endorsements are prohibited by the
+Leave the chips in place until the quotes are real. Fabricated endorsements are prohibited by the
 brand brief and actionable under the FTC's endorsement rules (16 CFR Part 255), which since
 2024 carry civil penalties — and for a practice selling discretion, being caught is worse than
 the fine.
 
+### "In my words" recording
+
+The Testimonials page has an "In my words" audio section that stays hidden until the file
+exists. Add the recording at `assets/audio/in-my-words.mp3` and it appears on its own; no
+code change needed.
+
 ### Going live
 
 Per card: replace the `<blockquote>`, `.tm-name` and `.tm-role` with the real words and the
-attribution that person agreed to, then delete that card's `Sample` chip. When no chips remain,
-delete the `.tm-placeholder-note` from `index.html`.
+attribution that person agreed to, then delete that card's `Sample` chip.
 
 ```bash
-grep -n "tm-sample|tm-placeholder-note" index.html testimonials.html
+grep -n "tm-sample" index.html testimonials.html
 ```
 
 - Attribution can be anonymised — "Director · Healthcare" works, and is often what people will
@@ -190,8 +193,8 @@ When The Brief gets a real provider (Beehiiv, ConvertKit, Substack), replace `in
    Morrisville, NC; the Early Starters FAQ says Raleigh–Durham. All three now say Morrisville, NC.
    Confirm which is right.
 
-4. **Session-type count is set to 6.** The old Early Starters hero said 6; the page lists 8 cards, and
-   the main site said 8. By decision the copy now says 6 everywhere; all 8 cards are still shown.
+4. **Session-type count is 8.** The old Early Starters hero said 6; the page lists 8 cards. By
+   decision the copy says 8 everywhere, matching the cards.
 
 5. **The Leadership Assessment is not built.** The brand brief's biggest gap is a self-serve
    ten-minute diagnostic as the front door. It is deliberately absent rather than faked — the
