@@ -190,7 +190,7 @@ When The Brief gets a real provider (Beehiiv, ConvertKit, Substack), replace `in
    amber, so the two sit side by side. Worth reconciling one way or the other.
 
 3. **Location is inconsistent.** The old main page said Raleigh, NC; the old startup page said
-   Morrisville, NC; the Early Starters FAQ says Raleigh–Durham. All three now say Morrisville, NC.
+   Morrisville, NC; the Early Starters FAQ says Raleigh–Durham. All three now say Raleigh–Durham, NC (changed from Morrisville, NC per IK, 07/10/2026).
    Confirm which is right.
 
 4. **Session-type count is 8.** The old Early Starters hero said 6; the page lists 8 cards. By
