@@ -1837,3 +1837,46 @@ body.is-gated { overflow: hidden; }
 }
 .voice .h2 { margin: 18px 0 28px; }
 .voice audio { width: 100%; max-width: 520px; }
+
+/* ==========================================================================
+   36. Nav logo — live brand type
+   The cropped wordtype raster couldn't be made bolder, so "NextSelf" is now
+   real text. The type block stands as tall as the mark: name on top, the
+   spaced subline sitting on the mark's baseline.
+   ========================================================================== */
+.nav-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+  color: #fff;
+  transition: color 0.3s var(--ease), height 0.4s var(--ease);
+}
+.nt-name {
+  font-family: var(--sans);
+  font-size: 41px;
+  font-weight: 800;
+  line-height: 0.8;       /* trims the line box so the caps sit flush with the mark's top */
+  letter-spacing: -0.02em;
+  margin-top: 1px;
+}
+.nt-tag {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.78;
+}
+.nav.is-stuck .nav-type { color: var(--indigo-ink); height: 43px; }
+.nav.is-stuck .nt-name  { font-size: 35px; }
+.nav.is-stuck .nt-tag   { font-size: 8.5px; }
+
+@media (max-width: 780px) {
+  .nav-type, .nav.is-stuck .nav-type { height: 40px; }
+  .nt-name, .nav.is-stuck .nt-name { font-size: 32px; }
+  .nt-tag, .nav.is-stuck .nt-tag { font-size: 7.5px; letter-spacing: 0.26em; }
+  .nav.is-open .nav-type { color: var(--indigo-ink); }
+}
