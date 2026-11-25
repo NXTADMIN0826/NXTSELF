@@ -1880,3 +1880,14 @@ body.is-gated { overflow: hidden; }
   .nt-tag, .nav.is-stuck .nt-tag { font-size: 7.5px; letter-spacing: 0.26em; }
   .nav.is-open .nav-type { color: var(--indigo-ink); }
 }
+
+/* ==========================================================================
+   The Brief — newsletter issue cards
+   A published issue becomes a whole-card link (same pattern as .route) that
+   opens the standalone newsletter in a new tab. Tag left, link right.
+   ========================================================================== */
+.route .route-foot:has(.tag) { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
