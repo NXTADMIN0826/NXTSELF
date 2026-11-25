@@ -1891,3 +1891,7 @@ body.is-gated { overflow: hidden; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
+/* Three equal columns on wide screens; the shared ≤1000px rule above
+   still drops .routes to one column (an inline style would override it). */
+.routes.routes-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1000px) { .routes.routes-3 { grid-template-columns: 1fr; } }
