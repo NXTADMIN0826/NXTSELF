@@ -105,28 +105,31 @@
     });
   });
 
-  /* Contact form → opens a pre-filled email (static site, no backend) */
-  var form = document.querySelector("[data-mailto-form]");
+  /* Order form → opens WhatsApp or email with the order pre-filled (static site, no backend) */
+  var form = document.querySelector("[data-order-form]");
   if (form) {
+    var ar = document.documentElement.lang === "ar";
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = form.querySelector(".form-status");
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      var data = new FormData(form);
-      var subject = "KLIFT order — " + (data.get("boxes") || "1") + " box(es) — " + (data.get("clinic") || data.get("name"));
-      var body = [
-        "Name: " + data.get("name"),
-        "Email: " + data.get("email"),
-        "Clinic / company: " + (data.get("clinic") || "—"),
-        "Country: " + (data.get("country") || "—"),
-        "I am a: " + (data.get("role") || "—"),
-        "Boxes required (3 vials per box): " + (data.get("boxes") || "1"),
-        "",
-        data.get("message") || ""
-      ].join("\n");
-      window.location.href = "mailto:" + form.getAttribute("data-mailto-form") +
-        "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      if (status) status.textContent = "Opening your email app with your order ready to send…";
+      var channel = (e.submitter && e.submitter.value) || "whatsapp";
+      var lines = [];
+      form.querySelectorAll("input[name], select[name], textarea[name]").forEach(function (el) {
+        if (el.type === "checkbox" || !el.value) return;
+        var label = form.querySelector('label[for="' + el.id + '"]');
+        lines.push((label ? label.textContent.trim() : el.name) + ": " + el.value.trim());
+      });
+      var title = "KLIFT — " + (form.querySelector("[name=request]") || {}).value;
+      var body = title + "\n\n" + lines.join("\n");
+      if (channel === "email") {
+        window.location.href = "mailto:" + form.getAttribute("data-email") +
+          "?subject=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body);
+        if (status) status.textContent = ar ? "جارٍ فتح تطبيق البريد مع طلبك…" : "Opening your email app with your order ready to send…";
+      } else {
+        window.open("https://wa.me/" + form.getAttribute("data-whatsapp") + "?text=" + encodeURIComponent(body), "_blank", "noopener");
+        if (status) status.textContent = ar ? "جارٍ فتح واتساب مع طلبك…" : "Opening WhatsApp with your order ready to send…";
+      }
     });
   }
 
