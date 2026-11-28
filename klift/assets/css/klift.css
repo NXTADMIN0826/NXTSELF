@@ -738,3 +738,4 @@ section { position: relative; }
 .ingredient-summary p { color: rgba(255, 255, 255, 0.75); margin: 0 0 8px; }
 .ingredient-summary .btn { align-self: flex-start; }
 @media (max-width: 640px) { .hero-chip.c2 { bottom: 30%; } }
+@media (max-width: 640px) { .hide-sm { display: none; } }

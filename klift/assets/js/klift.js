@@ -113,19 +113,20 @@
       var status = form.querySelector(".form-status");
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var data = new FormData(form);
-      var subject = "KLIFT enquiry — " + (data.get("role") || "General");
+      var subject = "KLIFT order — " + (data.get("boxes") || "1") + " box(es) — " + (data.get("clinic") || data.get("name"));
       var body = [
         "Name: " + data.get("name"),
         "Email: " + data.get("email"),
         "Clinic / company: " + (data.get("clinic") || "—"),
         "Country: " + (data.get("country") || "—"),
         "I am a: " + (data.get("role") || "—"),
+        "Boxes required (3 vials per box): " + (data.get("boxes") || "1"),
         "",
         data.get("message") || ""
       ].join("\n");
       window.location.href = "mailto:" + form.getAttribute("data-mailto-form") +
         "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      if (status) status.textContent = "Opening your email app with your message ready to send…";
+      if (status) status.textContent = "Opening your email app with your order ready to send…";
     });
   }
 
